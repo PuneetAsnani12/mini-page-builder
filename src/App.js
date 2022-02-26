@@ -7,7 +7,7 @@ function App() {
   return (
     <div className={styles.Home}>
       <div className={styles.Home__canvas}> <Canvas /> </div>
-      <div className={styles.Home__sidebar}> <Sidebar /> </div>
+      {/* <div className={styles.Home__sidebar}> <Sidebar /> </div> */}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import {Draggable} from 'react-draggable';
+import Draggable from 'react-draggable';
 import styles from './blockwrapper.module.scss';
 
 function BlockWrapper({children,block,updateCanvasBlock,setSelectedBlock,selectedBlock}) {
@@ -9,7 +9,7 @@ function BlockWrapper({children,block,updateCanvasBlock,setSelectedBlock,selecte
         return () => {
             setSelectedBlock(null);
         };
-    });
+    },[]);
 
     const onDragStop = (e, data) => {
         updateCanvasBlock(block.id, {

@@ -32,15 +32,7 @@ function Sidebar() {
     }
   ]
   
-  const handleDragEnd = () => {
-    setDraggingItem(null);
-    setDragging(false);
-  };
 
-  const handleDragStart = (item) => {
-    setDraggingItem(item);
-    setDragging(true);
-  };
 
   const isItemDragging = (item) => {
     if (dragging && draggingItem?.type === item.type) {
@@ -59,19 +51,16 @@ function Sidebar() {
               key={item.type}
               dragElemOpacity={1}
               dragData={item}
-              onDragStart={() => handleDragStart(item)}
-              onDragEnd={() => handleDragEnd()}
               customDragElement={
                 <div className={styles.sidebar__shadowElement}>
                   <BlockItems 
-                    dragging={isItemDragging(item)}
                     item={item}
-                    // className={styles.sidebar__shadowElementInner}
+                    className={styles.sidebar__shadowElementInner}
                      />
                 </div>
               }
             >
-              <BlockItems dragging={isItemDragging(item)} item={item} key={item.type} />
+              <BlockItems item={item} key={item.type} />
             </DragDropContainer>)
           })
         }
