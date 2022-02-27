@@ -12,24 +12,24 @@ function BlockWrapper({children,block,updateCanvasBlock,setSelectedBlock,selecte
     },[]);
 
     const onDragStop = (e, data) => {
-        updateCanvasBlock(block.id, {
-            ...block.details,
-            x: data.x.toString(),
-            y: data.y.toString(),
-        });
-        setSelectedBlock({ ...block });
+        // updateCanvasBlock(block.id, {
+        //     ...block.details,
+        //     x: data.x.toString(),
+        //     y: data.y.toString(),
+        // });
+        // setSelectedBlock({ ...block });
     };
 
     const onDrag = (e, data) => {
-        updateCanvasBlock(block.id, {
-            ...block.details,
-            x: data.x.toString(),
-            y: data.y.toString(),
-        });
+        // updateCanvasBlock(block.id, {
+        //     ...block.details,
+        //     x: data.x.toString(),
+        //     y: data.y.toString(),
+        // });
     };
 
     const handleOnMouseDown = (e) => {
-        setSelectedBlock(block);
+        // setSelectedBlock(block);
     };
 
     const isSelected = () => selectedBlock?.id === block.id;
@@ -38,8 +38,10 @@ function BlockWrapper({children,block,updateCanvasBlock,setSelectedBlock,selecte
         <Draggable
             nodeRef={blockRef}
             bounds="parent"
-            position={{ x: parseInt(block.details.x, 10), y: parseInt(block.details.y, 10) }}
+            defaultPosition={{ x: parseInt(block.details.x, 10), y: parseInt(block.details.y, 10) }}
             onDrag={onDrag}
+            enableUserSelectHack={false}
+            cancel=".Input"
             onStop={onDragStop}
             onMouseDown={handleOnMouseDown}
         >

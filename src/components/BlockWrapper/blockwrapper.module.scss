@@ -1,13 +1,11 @@
 .BlockWrapper {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 0;
+  display: block;
   outline: none;
   touch-action: none;
   pointer-events: visible;
   user-select: none;
-
+  float: left;
+  height: fit-content;
   &:hover {
     outline: 2px solid rgba(217, 85, 9, 0.3);
     cursor: grab;
@@ -17,11 +15,15 @@
     cursor: grabbing;
     outline: 2px solid rgb(217, 84, 9);
   }
+  &:focus {
+    cursor: grabbing;
+    outline: 2px solid rgb(217, 84, 9);
+  }
 }
 
-.BlockWrapper * {
-  pointer-events: none;
-}
+// .BlockWrapper * {
+//   pointer-events: none;
+// }
 
 .BlockWrapper__active {
   outline: 2px solid rgb(217, 84, 9);
